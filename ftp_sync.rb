@@ -3,6 +3,7 @@ require 'net/ftp'
 require 'date'
 require 'fileutils'
 
+# https://github.com/alvin2ye/ftpsync/edit/master/ftp_sync.rb
 # usage:
 
 # ftp = FtpSync.new('ftp.site.com', 'user', 'password')
