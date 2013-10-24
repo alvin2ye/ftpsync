@@ -182,9 +182,9 @@ class FtpSync
     end
     
     existing_files.each do |file|
-      remote_time = ftp.mtime(file, false)
-      local_time = File.new(file).mtime
-      if local_time > remote_time
+      remote_size = ftp.size(file)
+      local_size = File.size(file)
+      if local_size != remote_size
         put_title "#{full_file_path(file)} needs update"
         upload_file(file, ftp)
       end
