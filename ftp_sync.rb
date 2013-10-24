@@ -242,26 +242,25 @@ class FtpSync
     # put_title "existing files"
     # puts existing_files
     
-    removed_dirs.each do |dir|
-#rm dir
-      FileUtils.rm_rf dir
-    end
+    # removed_dirs.each do |dir|
+    # rm dir
+    # FileUtils.rm_rf dir
+    # end
         
-    removed_files.each do |file|
-#rm file      
-      FileUtils.rm_rf file
-    end
+    # removed_files.each do |file|
+    # rm file      
+    # FileUtils.rm_rf file
+    # end
 
     new_files.each do |file|
       ftp.get(file)
     end
-   
 
     existing_files.each do |file|
       remote_size = ftp.size(file)
 
       local_size = File.new(file).size
-#      puts file, remote_size ,local_size
+      puts file, remote_size ,local_size
       if remote_size != local_size
         put_title "#{full_file_path(file)} needs update"
         ftp.get(file)
